@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  :root {
+    --grid-droppable-outline: theme('colors.sky.600');
+  }
+  html {
+    background: theme('colors.slate.950');
+  }
+}
+
+@layer components {
+  .price-ladder--price-column-buy {
+    background-image: linear-gradient(90deg, theme('colors.teal.500/0.2') 50%, transparent 50%);
+  }
+
+  .price-ladder--price-column-sell {
+    background-image: linear-gradient(90deg, theme('colors.rose.500/0.2') 50%, transparent 50%);
+  }
+  .price-ladder--price-column-buy,
+  .price-ladder--price-column-sell {
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 90%;
+  }
+
+  .grid-lines {
+    --dot-color: theme('colors.slate.600');
+    transition: opacity 0.3s;
+    background-image: radial-gradient(circle at 0px 0px, var(--dot-color) 1px, transparent 0),
+      radial-gradient(circle at var(--grid-size) 0px, var(--dot-color) 1px, transparent 0),
+      radial-gradient(circle at 0px var(--grid-size), var(--dot-color) 1px, transparent 0),
+      radial-gradient(circle at var(--grid-size) var(--grid-size), var(--dot-color) 1px, transparent 0);
+    background-size: calc(var(--grid-size) - 0px) calc(var(--grid-size) - 0px);
+  }
+}
